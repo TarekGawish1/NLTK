@@ -1,26 +1,21 @@
-# Step 1: Install NLTK and download stop words
-# You can install NLTK using pip if you haven't already
-# pip install nltk
-
-# Importing necessary modules
 import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
+from nltk.corpus import brown as bwn
 
-# Download the stopwords corpus if you haven't already
-nltk.download('stopwords')
-nltk.download('punkt')
+nltk.download('brown')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('universal_tagset')
+result = bwn.tagged_words()[0:40]
 
-# Define the input text
-input_text = "This is a sample sentence, showing off the stop words filtration."
+print(result)
 
-# Step 3: Tokenize the input text
-words = word_tokenize(input_text)
+from nltk.tokenize import word_tokenize as w_tok
+from nltk import pos_tag as p_tag
 
-# Step 4: Filter out the stop words
-stop_words = set(stopwords.words('english'))
-filtered_sentence = [word for word in words if word.lower() not in stop_words]
+utt1 = w_tok("Give me a call")
+utt2 = w_tok("Call me later")
 
-# Print the result
-print("Original sentence:", input_text)
-print("Filtered sentence:", ' '.join(filtered_sentence))
+result2 = p_tag(utt1, tagset='universal')
+result3 = p_tag(utt2, tagset='universal')
+
+print(result2)
+print(result3)
