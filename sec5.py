@@ -4,6 +4,7 @@ from nltk.corpus import brown as bwn
 nltk.download('brown')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('universal_tagset')
+
 result = bwn.tagged_words()[0:40]
 
 print(result)
