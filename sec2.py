@@ -1,7 +1,6 @@
 # stem porter
 from nltk.stem.porter import PorterStemmer as p_stem
 
-
 print(p_stem().stem("dogs"))
 
 
